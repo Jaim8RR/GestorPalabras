@@ -52,7 +52,8 @@ Para copiar el repositorio se usa el siguente comando:
 ```
 git clone <URL del repositorio>
 ```
-![SSH url](img/SSH.png)
+![SSH url](img/SSH.png)  
+
 Clona un repositorio existente desde una URL.
 
 ### _Ramas:_
