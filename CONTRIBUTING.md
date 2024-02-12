@@ -100,7 +100,7 @@ Con el **@NombreDeUsuario** puedes mencionar a alguien y responder a una Issue:
 Con los Label puedes asignarle diferentes etiquetas. Puedes incluso crear tú nuevas!  
 ### Estas son las 9 predeterminadas:
 
-![Etiquetas](./img/Label.png)
+![Etiquetas](./img/Label.PNG)
 
 Y tambien podemos assignar a X numero de personas para que resuelvan la Issue:
 
