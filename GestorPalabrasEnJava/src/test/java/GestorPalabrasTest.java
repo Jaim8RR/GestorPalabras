@@ -68,5 +68,26 @@ public class GestorPalabrasTest {
         assertFalse(gestor.esPalindromo("asjkd5-@6d<"));
 
     }
+    
+     @Test
+    public void testInvertirPalabraPalabrasSimples() {
+        assertEquals("aloh", gestor.invertirPalabra("hola"));
+        assertEquals("asem", gestor.invertirPalabra("mesa"));
+        assertEquals("asac", gestor.invertirPalabra("casa"));
+    }
+
+    @Test
+    public void testInvertirPalabra_Mayusculas() {
+        assertEquals("ALOH", gestor.invertirPalabra("HOLA"));
+        assertEquals("ASEM", gestor.invertirPalabra("MESA"));
+        assertEquals("ASAC", gestor.invertirPalabra("CASA"));
+    }
+
+    @Test
+    public void testInvertirPalabraNúmeros() {
+        assertEquals("54321", gestor.invertirPalabra("12345"));
+        assertEquals("0123456789", gestor.invertirPalabra("9876543210"));
+    }
+    
 
 }
