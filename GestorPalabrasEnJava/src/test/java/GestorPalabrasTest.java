@@ -1,9 +1,7 @@
 
 import com.mycompany.pruebasaplicacionjava.GestorPalabras;
 import org.junit.*;
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertFalse;
-import static org.junit.Assert.assertTrue;
+import static org.junit.Assert.*;
 
 /*
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
@@ -89,5 +87,36 @@ public class GestorPalabrasTest {
         assertEquals("0123456789", gestor.invertirPalabra("9876543210"));
     }
     
+    @Test
+public void testContarVocalesPalabrasSimples() {
+    assertEquals(3, gestor.contarVocales("hablame"));
+    assertEquals(4, gestor.contarVocales("olvidamos"));
+    assertEquals(4, gestor.contarVocales("palindromo"));
+    assertNotEquals(1, gestor.contarVocales("hola"));
+}
+
+@Test
+public void testContarVocalesConEspacios() {
+    assertEquals(5, gestor.contarVocales("pepe con un pan"));
+    assertEquals(9, gestor.contarVocales("bienvenido caballero"));
+    assertEquals(4, gestor.contarVocales("pompon blanco"));
+    assertNotEquals(5, gestor.contarVocales("El carmin son bichos muertos"));
+}
+
+@Test
+public void testContarVocalesConMayusculas() {
+    assertEquals(3, gestor.contarVocales("hAblAmE"));
+    assertEquals(4, gestor.contarVocales("OlvidAmoS"));
+    assertEquals(4, gestor.contarVocales("palIndromO"));
+    assertNotEquals(1, gestor.contarVocales("hOLa"));
+}
+
+@Test
+public void testContarVocalesMezcla() {
+    assertEquals(2, gestor.contarVocales("bb/*a a/*"));
+    assertEquals(1, gestor.contarVocales("!<!ds a4342"));
+    assertEquals(1, gestor.contarVocales("23# @|daw13dw3·"));
+    assertNotEquals(5, gestor.contarVocales("2817rgy82bf 518--*-650"));
+}
 
 }
