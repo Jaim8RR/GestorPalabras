@@ -88,35 +88,65 @@ public class GestorPalabrasTest {
     }
     
     @Test
-public void testContarVocalesPalabrasSimples() {
+    public void testContarVocalesPalabrasSimples() {
     assertEquals(3, gestor.contarVocales("hablame"));
     assertEquals(4, gestor.contarVocales("olvidamos"));
     assertEquals(4, gestor.contarVocales("palindromo"));
     assertNotEquals(1, gestor.contarVocales("hola"));
 }
 
-@Test
-public void testContarVocalesConEspacios() {
+    @Test
+    public void testContarVocalesConEspacios() {
     assertEquals(5, gestor.contarVocales("pepe con un pan"));
     assertEquals(9, gestor.contarVocales("bienvenido caballero"));
     assertEquals(4, gestor.contarVocales("pompon blanco"));
     assertNotEquals(5, gestor.contarVocales("El carmin son bichos muertos"));
 }
 
-@Test
-public void testContarVocalesConMayusculas() {
+    @Test
+    public void testContarVocalesConMayusculas() {
     assertEquals(3, gestor.contarVocales("hAblAmE"));
     assertEquals(4, gestor.contarVocales("OlvidAmoS"));
     assertEquals(4, gestor.contarVocales("palIndromO"));
     assertNotEquals(1, gestor.contarVocales("hOLa"));
 }
 
-@Test
-public void testContarVocalesMezcla() {
+    @Test
+    public void testContarVocalesMezcla() {
     assertEquals(2, gestor.contarVocales("bb/*a a/*"));
     assertEquals(1, gestor.contarVocales("!<!ds a4342"));
     assertEquals(1, gestor.contarVocales("23# @|daw13dw3·"));
     assertNotEquals(5, gestor.contarVocales("2817rgy82bf 518--*-650"));
 }
-
+    @Test 
+    public void testContarVocalesAcentuadas() {
+    assertEquals(2, gestor.contarVocales("allí"));
+    assertEquals(2, gestor.contarVocales("Árbol"));
+    assertEquals(3, gestor.contarVocales("Más allá"));
+    assertNotEquals(6, gestor.contarVocales("América Latina"));
+}
+    
+    @Test 
+    public void testContarVocalesDieresis() {
+    assertEquals(4, gestor.contarVocales("pingüino"));
+    assertEquals(5, gestor.contarVocales("Lingüística"));
+    assertEquals(4, gestor.contarVocales("Agüero"));
+    assertNotEquals(4, gestor.contarVocales("Ambigüedad"));
+}
+ @Test
+ public void testContadorVocalesSinVcoales() {
+     assertEquals(0, gestor.contarVocales("ddd"));
+     assertEquals(0, gestor.contarVocales("nNm"));
+     assertEquals(0, gestor.contarVocales("lmn"));
+     assertNotEquals(1, gestor.contarVocales("xdf"));
+ }
+ 
+ @Test
+ public void testContadorVocalesMayusculasConAcentuacion(){
+     assertEquals(1, gestor.contarVocales("Ádd"));
+     assertEquals(5, gestor.contarVocales("ÁÉÍÓÚ"));
+     assertEquals(3, gestor.contarVocales("ÁÉÍ"));
+     assertNotEquals(1, gestor.contarVocales("Xdd"));
+     
+ }
 }
