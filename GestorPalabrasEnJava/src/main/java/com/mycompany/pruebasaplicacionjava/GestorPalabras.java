@@ -23,14 +23,19 @@ public class GestorPalabras {
     public int contarVocales(String palabra) {
         int contador = 0;
         for (int i = 0; i < palabra.length(); i++) {
-            char caracter = Character.toLowerCase(palabra.charAt(i));
-            if (caracter != 'a' && caracter != 'e' && caracter != 'i' && caracter != 'o' && caracter != 'u') {
-                contador++;
-            }
+        char caracter = Character.toLowerCase(
+                palabra.charAt(i));
+        if (esVocal(caracter)) {
+            contador++;
         }
+    }
         return contador;
     }
-
+    
+    private boolean esVocal(char c) {
+    return "aeiouáéíóúü".indexOf(c)!= -1;//es un boolean pilla true o false como lo hace? buenosabemos que nunca vamos a tener indice -1 porque puse en el comparador != -1, si encuentra un tipo de vocal nos devolvera un indice lo cual seria un true y si no encuentra nada un false.
+    }
+    
     public String invertirPalabra(String palabra) {
         StringBuilder resultado = new StringBuilder();
         for (int i = palabra.length() - 1; i >= 0; i--) {
