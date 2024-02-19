@@ -113,9 +113,9 @@ public class GestorPalabrasTest {
 
     @Test
     public void testContarVocalesMezcla() {
-    assertEquals(2, gestor.contarVocales("bb/*a a/*"));
+    assertEquals(2, gestor.contarVocales("bb/*á a/*"));
     assertEquals(1, gestor.contarVocales("!<!ds a4342"));
-    assertEquals(1, gestor.contarVocales("23# @|daw13dw3·"));
+    assertEquals(1, gestor.contarVocales("23# @|dáw13dw3·"));
     assertNotEquals(5, gestor.contarVocales("2817rgy82bf 518--*-650"));
 }
     @Test 
