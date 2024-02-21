@@ -1,4 +1,5 @@
 
+import com.mycompany.Exceptions.NumberException;
 import com.mycompany.pruebasaplicacionjava.GestorPalabras;
 import org.junit.*;
 import static org.junit.Assert.*;
@@ -16,8 +17,7 @@ public class GestorPalabrasTest {
     GestorPalabras manager = new GestorPalabras();
 
     @Test
-    public void testIsPalindromeSimpleWords() {
-
+    public void testIsPalindromeSimpleWords() throws NumberException{
         assertTrue(manager.isPalindrome("aa"));//par
         assertTrue(manager.isPalindrome("oso"));//impar
         assertTrue(manager.isPalindrome("radar"));
@@ -25,7 +25,7 @@ public class GestorPalabrasTest {
     }
 
     @Test
-    public void testIsPalindromeCapitalLetters() {
+    public void testIsPalindromeCapitalLetters() throws NumberException{
         assertTrue(manager.isPalindrome("ANa"));
         assertTrue(manager.isPalindrome("OsSo"));
         assertTrue(manager.isPalindrome("RADAR"));
@@ -33,14 +33,14 @@ public class GestorPalabrasTest {
     }
 
     @Test
-    public void testIsPalindromeWhiteSpaces() {
+    public void testIsPalindromeWhiteSpaces() throws NumberException{
         assertTrue(manager.isPalindrome("Anita lava la tina"));
         assertTrue(manager.isPalindrome("Esperabas un test pero era yo, Dio!!oiD ,oy are orep tset nu sabarepsE"));
         assertFalse(manager.isPalindrome("Esto no es un palindromo"));
     }
 
     @Test
-    public void testIsPalindromeSpecialCases() {
+    public void testIsPalindromeSpecialCases() throws NumberException{
         assertTrue(manager.isPalindrome("ááa"));
         assertTrue(manager.isPalindrome("allí, ves sevilla"));
         assertTrue(manager.isPalindrome("<!ÑoÑoÑ!>"));
@@ -48,8 +48,8 @@ public class GestorPalabrasTest {
 
     }
 
-    @Test
-    public void testIsPalindromeNumbers() {
+    @Test(expected = NumberException.class)
+    public void testIsPalindromeNumbers() throws NumberException{
         assertTrue(manager.isPalindrome("12321"));
         assertTrue(manager.isPalindrome("2.2"));
         assertTrue(manager.isPalindrome("5432112345"));
@@ -57,8 +57,8 @@ public class GestorPalabrasTest {
 
     }
 
-    @Test
-    public void testIsPalindromeMixt() {
+    @Test(expected = NumberException.class)
+    public void testIsPalindromeMixt() throws NumberException{
         assertTrue(manager.isPalindrome("444E444"));
         assertTrue(manager.isPalindrome("Póndnop"));
         assertTrue(manager.isPalindrome("*hola aloh*"));
