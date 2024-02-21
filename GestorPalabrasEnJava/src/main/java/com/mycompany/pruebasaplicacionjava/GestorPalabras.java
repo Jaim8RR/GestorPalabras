@@ -9,38 +9,38 @@ package com.mycompany.pruebasaplicacionjava;
  * @author Jaime
  */
 public class GestorPalabras {
-    public boolean esPalindromo(String palabra) {//si hay una tilde debe funcionar?//número?
-        String palabraFormateada = palabra.replaceAll("\\s+", "").toLowerCase();
+    public boolean isPalindrome(String word) {
+        String formattedWord = word.replaceAll("\\s+", "").toLowerCase();
         
-        for (int i = 0; i < palabraFormateada.length() / 2; i++) {
-            if (palabraFormateada.charAt(i) != palabraFormateada.charAt(palabraFormateada.length() - i - 1)) {
+        for (int i = 0; i < formattedWord.length() / 2; i++) {
+            if (formattedWord.charAt(i) != formattedWord.charAt(formattedWord.length() - i - 1)) {
                 return false;
             }
         }
         return true;
     }
 
-    public int contarVocales(String palabra) {
-        int contador = 0;
-        for (int i = 0; i < palabra.length(); i++) {
-        char caracter = Character.toLowerCase(
-                palabra.charAt(i));
-        if (esVocal(caracter)) {
-            contador++;
+    public int countVowels(String word) {
+        int counter = 0;
+        for (int i = 0; i < word.length(); i++) {
+        char character = Character.toLowerCase(
+                word.charAt(i));
+        if (isVowel(character)) {
+            counter++;
         }
     }
-        return contador;
+        return counter;
     }
     
-    private boolean esVocal(char c) {
-    return "aeiouáéíóúü".indexOf(c)!= -1;//es un boolean pilla true o false como lo hace? buenosabemos que nunca vamos a tener indice -1 porque puse en el comparador != -1, si encuentra un tipo de vocal nos devolvera un indice lo cual seria un true y si no encuentra nada un false.
+    private boolean isVowel(char c) {
+    return "aeiouáéíóúü".indexOf(c)!= -1;
     }
     
-    public String invertirPalabra(String palabra) {
-        StringBuilder resultado = new StringBuilder();
-        for (int i = palabra.length() - 1; i >= 0; i--) {
-            resultado.append(palabra.charAt(i));
+    public String invertWord(String word) {
+        StringBuilder result = new StringBuilder();
+        for (int i = word.length() - 1; i >= 0; i--) {
+            result.append(word.charAt(i));
         }
-        return resultado.toString();
+        return result.toString();
     }
 }
