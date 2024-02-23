@@ -1,6 +1,6 @@
 # Contribuir al Trabajo de Gestor de palabras
 
-Trabajo realizado por Daniel Antmann, Alex Gonzaga, Marcos Gilson y Jaime Riesgo.
+
 
 # Instruciones:
 
@@ -106,9 +106,4 @@ Y tambien podemos assignar a X numero de personas para que resuelvan la Issue:
 
 ![Asignaciones](./img/Asignaciones.png)
 
-De forma que iremos viendo el código y haciendo issues asignandosela a cada miembro.  
-
-Los pull request deben de llevar el siguiente formato [NombreDeLaIssue:NombrePersona] y con sus debida explicación etc.
-Recordad solo hacer commit de los archivos que modifiqueis para poder llevar un mejor control de versiones.Si vas a cambiar mas de una cosas que no esten relacionadas es mejor hacer dos pull request.
-
-Ej: si en la class gestorpalabras añado un metodo pero no hago nada con el test solo has de hacer el git commit de gestorpalabras y explicar que es lo que has cambiado. 
+De forma que iremos viendo el código y haciendo issues asignandosela a cada miembro.
