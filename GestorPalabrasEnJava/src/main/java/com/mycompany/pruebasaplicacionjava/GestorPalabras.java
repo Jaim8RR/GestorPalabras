@@ -6,22 +6,23 @@ package com.mycompany.pruebasaplicacionjava;
 import com.mycompany.Exceptions.NumberException;
 
 import java.text.Normalizer;
-
+import java.util.regex.Pattern;
 /**
  *
  * @author Jaime
  */
 public class GestorPalabras {
 
-    public boolean isPalindrome(String str) throws NumberException{
+     public boolean isPalindrome(String str) throws NumberException{
         String normalizedStr = Normalizer.normalize(str, Normalizer.Form.NFD)
                 .replaceAll("\\p{M}", "");                                  //replaces white spaces with"" (i have no idea how it works but it does)
         String cleanedStr = normalizedStr.replaceAll("[^\\p{L}\\p{N}]", "");//replaces áüî etc
         String lowerCaseStr = cleanedStr.toLowerCase();
+        
+        Pattern numberPattern = Pattern.compile("[0-9]");
         for (int i = 0; i < lowerCaseStr.length(); i++) {
-            if (lowerCaseStr.charAt(i) == '0' || lowerCaseStr.charAt(i) == '1' || lowerCaseStr.charAt(i) == '2' ||
-                    lowerCaseStr.charAt(i) == '3' || lowerCaseStr.charAt(i) == '4' || lowerCaseStr.charAt(i) == '5' ||
-                    lowerCaseStr.charAt(i) == '6' || lowerCaseStr.charAt(i) == '7' || lowerCaseStr.charAt(i) == '8' || lowerCaseStr.charAt(i) == '9') {
+            if (numberPattern.matcher(String.valueOf(lowerCaseStr.charAt(i))).matches()) {//uses a patern of numbers as a condition that wen they appey throws an exception
+                
                 throw new NumberException("The value can't be a number");
             }
         }
@@ -32,6 +33,7 @@ public class GestorPalabras {
         }
         return (str.length() >= 1);
     }
+
 
     public int countVowels(String word) {
         int counter = 0;
